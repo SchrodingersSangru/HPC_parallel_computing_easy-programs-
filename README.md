@@ -14,3 +14,5 @@ now put the digit, and get the answer.
 
 
 you can increase the number of threads, on your cluster. 
+
+## it works on the python too. just run your python program as usual. 
