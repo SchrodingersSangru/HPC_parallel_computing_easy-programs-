@@ -1,7 +1,7 @@
 import random
 import concurrent.futures
 
-STRING_LENGTH = 1000
+STRING_LENGTH = random.randint(500, 5000)
 
 # Function for each thread to count digit occurrences
 def count_occurrences(start_idx, end_idx, input_string, digit_to_find):
@@ -20,7 +20,7 @@ def main():
     digit_to_find = int(input("Enter a digit to find (0-9): "))
     
     # Number of threads
-    num_threads = 4
+    num_threads = 16
     part_size = STRING_LENGTH // num_threads
     print(f"Number of threads: {num_threads}")
     
@@ -43,28 +43,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-## file name as digit_count.py 
 
-## job.sh file 
-#!/bin/bash
-#SBATCH --job-name=digit_count
-#SBATCH --output=digit_count.out
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --time=00:10:00
-#SBATCH --partition=normal
-
-# module load python
-# python3 digit_count.py
-
-### end of job.sh file 
-
-
-#  command to schule job run -  sbatch job.sh
-
-# run this file using python on your cluster python3 digit_count.py
-
-
-
-
-
+# there is no need of slurm on my ncsu cluster. 
+# just run like a normal python code. That's it. It'll do its job. 
